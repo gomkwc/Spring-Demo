@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="jboss7" default="sql" basedir=".">
+
+    <!-- ant -f build_db.xml -->
+    <property name="connectionUrl" value="jdbc:mysql://localhost:3306/Test" />
+    <property name="user" value="root" />
+    <property name="password" value="1111" />
+    <property name="jdbcDriver" value="com.mysql.jdbc.Driver" />
+
+    <target name="sql">
+        <sql driver="${jdbcDriver}"
+             url="${connectionUrl}"
+             userid="${user}"
+             password="${password}"
+             classpath="mysql-connector-java-5.1.17-bin.jar"
+             encoding="UTF-8">
+            <fileset dir="">
+                <include name="user.sql"/>
+            </fileset>
+        </sql>
+    </target>
+</project>
