@@ -1,0 +1,37 @@
+구동 : <CATALINA_HOME>/bin/catalina.sh stop
+중지 : <CATALINA_HOME>/bin/catalina.sh start
+ 
+1. Tomcat 7 과 mysql 5.5.30 버전을 설치한다.
+    1.1. http://localhost:8080/ 접속하여 JBoss 메인페이지가 나오는지 확인한다. 
+    1.2. mysql 에 접속하여 계정을 만든다. (초기 root 계정의 패스워드를 1111 로 설정한다.) 
+    1.3. 계정패스워드 설정방법 - <MYSQL_HOME>/bin 으로 이동 > /usr/local/mysql/bin 
+        1.3.1 ./mysql 로 로그인한다. (초기 패스워드는 없다) 
+        1.3.2. use mysql; 
+        1.3.3. update user set password=password('1111') where user='root'; 
+        1.3.4. flush privileges; 
+    1.4. 계정 패스워드 제대로 설정되었는지 확인해 본다. 
+        1.4.1. ./mysql -u root -p
+
+2. JDBC driver 를 설치한다.
+    2.1. <TOMCAT_HOME>/lib 폴더에 mysql-connector-java-5.1.17-bin.jar 복사한다.
+
+
+3. Tomcat Host / Resource 정보를 설정한다.
+    3.1.  <TOMCAT_HOME>/conf/server.xml 파일의  localhost host 를 아래와 같이 수정한다.
+       <Host name="localhost"  appBase="webapps" unpackWARs="true" autoDeploy="true">
+            <Context path="" docBase="demo" reloadable="true">
+            <Resource name="jdbc/MySqlDS" auth="Container" type="javax.sql.DataSource" driverClassName="org.gjt.mm.mysql.Driver"
+                     url="jdbc:mysql://localhost:3306/jboss7db?autoReconnect=true" validationQuery="select 1" username="root" password="1111"
+                     maxActive="20" maxIdle="10" maxWait="-1" />
+            </Context>
+       </Host>
+
+4. 예제파일에 첨부된 build_db.xml 파일을 ant 로 실행하여 예제 데이터를 생성한다.
+
+5. IDE 에 https://github.com/gomkwc/Spring-Demo 에서 Checkout 후 Maven으로 deploy를 수행한다.
+
+6. http://localhost:8080/ 에 접속하여 데이터가 제대로 나오는지 확인한다.
+
+참고 : Maven 이란 Apache Software Foundation에서 개발되고 있는 소프트웨어 프로젝트 관리툴
+
+This file was modified by IntelliJ IDEA 12.1.6 for binding GitHub repository
