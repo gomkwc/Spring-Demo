@@ -1,8 +1,9 @@
 
 <div align=center>
 <table border=1>
+
 		<tr>
-			<td>아이디 (Tomcat7 만세 2)</td>
+			<td>아이디 (Tomcat7 만세 3)</td>
 			<td>이름</td>
 		</tr>
 			<#list userList as data>

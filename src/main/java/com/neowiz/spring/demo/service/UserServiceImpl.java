@@ -17,11 +17,13 @@ public class UserServiceImpl implements UserService{
 	private UserDAO userDAO;
 
 
-	/**    
-	 * 
-	 * 테스트
-	 * 
-	 */
+    /**
+     *
+     * 회원정보 객체 리스트를 가져온다.
+     *
+     * @return  User 리스트 객체
+     * @throws Exception  Exception 객체
+     */
 	public List<User> getUserInfo() throws Exception {
 		
 		List<User> list = (List<User>) userDAO.getUserInfo();

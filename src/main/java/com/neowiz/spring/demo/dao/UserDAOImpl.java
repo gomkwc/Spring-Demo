@@ -9,13 +9,14 @@ import java.util.List;
 @Repository
 public class UserDAOImpl extends SqlSessionDaoSupport implements UserDAO{
 
-	/**
-	 * 
-	 * 테스트
-	 * 
-	 */
-	@SuppressWarnings("unchecked")
-	public List<User> getUserInfo() throws Exception {
+    /**
+     *
+     * 회원정보 객체 리스트를 가져온다.
+     *
+     * @return  User 리스트 객체
+     * @throws Exception  Exception 객체
+     */
+    public List<User> getUserInfo() throws Exception {
 		List<User> list =  getSqlSession().selectList("userDAO.GET_USER_INFO");
 		return list;
 	}

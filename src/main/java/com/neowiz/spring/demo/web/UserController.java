@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
+ *
+ * UserController는 회원관련 Controller 클래스이다.
+ *
  * User: David KIM
  * Date: 14. 2. 9.
  * Time: 오후 1:50
@@ -23,10 +26,18 @@ public class UserController  {
     @Autowired
     private UserService userService;
 
+    /**
+     *
+     * 회원정보를 가져오는 메소드
+     *
+     * @param request  request 객체
+     * @param response  response 객체
+     * @return ModelAndView 객체
+     * @throws Exception Exception 객체
+     */
     @RequestMapping(value = "/userInfo.do", method= RequestMethod.GET)
     protected ModelAndView handleData(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        System.out.println("### Data ###");
         List<User> list = (List<User>) userService.getUserInfo();
 
         ModelAndView mav = new ModelAndView();
