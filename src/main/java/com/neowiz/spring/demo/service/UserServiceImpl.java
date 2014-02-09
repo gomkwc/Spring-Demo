@@ -10,6 +10,11 @@ import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * UserServiceImpl 는 회원정보 관련 서비스 클래스이다.
+ *
+ */
 @Service
 public class UserServiceImpl implements UserService{
 	

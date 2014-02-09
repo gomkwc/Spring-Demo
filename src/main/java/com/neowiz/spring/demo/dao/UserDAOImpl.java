@@ -6,6 +6,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ *
+ *
+ * UserDAOImpl 는 회원정보 관련 DAO 클래스이다.
+ *
+ *
+ */
 @Repository
 public class UserDAOImpl extends SqlSessionDaoSupport implements UserDAO{
 
