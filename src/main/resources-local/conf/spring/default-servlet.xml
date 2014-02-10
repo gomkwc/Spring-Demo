@@ -19,6 +19,11 @@
 
 	<!-- HandlerMapping -->
 	<bean id="handlerMapping1" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="interceptors">
+            <list>
+                <ref bean="loginCheckInterceptor"/>
+             </list>
+        </property>
 		<property name="alwaysUseFullPath" value="true" />
 		<property name="order" value="1" />
 		<property name="mappings">
