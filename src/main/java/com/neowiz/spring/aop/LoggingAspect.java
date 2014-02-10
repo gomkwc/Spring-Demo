@@ -44,7 +44,7 @@ public class LoggingAspect {
     }
 
     @AfterThrowing(pointcut = "execution(* com.neowiz.spring.demo.service.UserService.getUserInfo(..))", throwing= "exception")
-    public void logAfterThrowing(JoinPoint joinPoint, Throwable exception) {
+    public void logAfterThrowing(JoinPoint joinPoint, Exception exception) {
         System.out.println("logAfterThrowing() is running!");
         System.out.println("hijacked : " + joinPoint.getSignature().getName());
         System.out.println("Exception : " + exception);

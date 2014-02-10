@@ -33,9 +33,6 @@ public class UserServiceImpl implements UserService{
         //System.out.println("getUserInfo() is running ");
 		List<User> list = (List<User>) userDAO.getUserInfo();
 
-        //if(list != null)
-        //throw new Exception("User List Error");
-
         return list;
 	}
 
