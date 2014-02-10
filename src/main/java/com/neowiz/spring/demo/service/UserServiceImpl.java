@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService{
      * @throws Exception  Exception 객체
      */
 	public List<User> getUserInfo() throws Exception {
-        System.out.println("getUserInfo() is running ");
+        //System.out.println("getUserInfo() is running ");
 		List<User> list = (List<User>) userDAO.getUserInfo();
 		return list;
 	}
