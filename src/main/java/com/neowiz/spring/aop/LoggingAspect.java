@@ -43,8 +43,8 @@ public class LoggingAspect {
         System.out.println("******");
     }
 
-    @AfterThrowing(pointcut = "execution(* com.neowiz.spring.demo.service.UserService.getUserInfo(..))", throwing= "exception")
-    public void logAfterThrowing(JoinPoint joinPoint, Exception exception) {
+    @AfterThrowing(pointcut = "execution(* com.neowiz.spring..*.*(..))", throwing= "exception")
+    public void logAfterThrowing(JoinPoint joinPoint, Throwable exception) {
         System.out.println("logAfterThrowing() is running!");
         System.out.println("hijacked : " + joinPoint.getSignature().getName());
         System.out.println("Exception : " + exception);
