@@ -3,7 +3,7 @@
 <table border=1>
 
 		<tr>
-			<td>아이디 (Neowiz)</td>
+			<td>아이디 (Neowiz2)</td>
 			<td>이름</td>
 		</tr>
 			<#list userList as data>
